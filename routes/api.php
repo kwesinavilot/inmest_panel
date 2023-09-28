@@ -29,14 +29,14 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 
     //routes for categories
-    Route::get('/categories', [CategoryController::class, 'index']);
-    Route::get('/categories/{categoryID}', [CategoryController::class, 'show']);
+    // Route::get('/categories', [CategoryController::class, 'index']);
+    // Route::get('/categories/{categoryID}', [CategoryController::class, 'show']);
 
     //routes for meals
-    Route::get('/meals', [MealController::class, 'index']);
-    Route::get('/meals/{mealID}', [MealController::class, 'show']);
+    // Route::get('/meals', [MealController::class, 'index']);
+    // Route::get('/meals/{mealID}', [MealController::class, 'show']);
 
-    Route::get('/user', function (Request $request) {
+    Route::get('/student', function (Request $request) {
         return $request->user();
     });
 });
