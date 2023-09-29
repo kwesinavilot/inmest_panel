@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\LeaveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     //routes for QR Code
     Route::post('/mark-as-present/{code}/{student}', [AttendanceController::class, 'markAsPresent']);
+
+    Route::post('/request-sick-leave', [LeaveController::class, 'requestSickLeave']);
 
     Route::get('/student', function (Request $request) {
         return $request->user();

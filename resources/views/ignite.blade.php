@@ -41,8 +41,6 @@
 </head>
 <body>
     <div class="content">
-        <h1>Scan To Log Attendance</h1>
-
         <div class="container">
             <div id="qr-code">
                 {!! $qrcode !!}
