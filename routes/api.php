@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,13 +29,11 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 
-    //routes for categories
-    // Route::get('/categories', [CategoryController::class, 'index']);
-    // Route::get('/categories/{categoryID}', [CategoryController::class, 'show']);
-
-    //routes for meals
-    // Route::get('/meals', [MealController::class, 'index']);
-    // Route::get('/meals/{mealID}', [MealController::class, 'show']);
+    //routes for QR Code
+    Route::post('/mark-as-present/{code}/{student}', [AttendanceController::class, 'markAsPresent']);
+    // Route::controller(AttendanceController::class)->group(function () {
+    //     Route::get('/mark-as-present/{code}/{student}', 'markAsPresent');
+    // });
 
     Route::get('/student', function (Request $request) {
         return $request->user();

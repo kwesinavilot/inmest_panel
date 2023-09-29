@@ -57,7 +57,6 @@ class AuthController extends APIBaseController
 
     public function EITLogin(Request $request)
     {
-        // dd($request);
         try {
             $validator = Validator::make($request->all(), [
                 'email' => ['required', 'string', 'exists:student', new MESTDomainOnly()],
