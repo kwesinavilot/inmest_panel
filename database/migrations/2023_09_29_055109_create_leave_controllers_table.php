@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('leave', function (Blueprint $table) {
             $table->string('leaveID', 10)->primary();
             $table->string('studentID', 10);
-            $table->set('type', ['sick', 'personal', 'other'])->default('sick');
+            $table->set('type', ['sick', 'other'])->default('sick');
+            $table->set('severity', ['critical', 'mild'])->default('mild');
             $table->string('symptoms')->nullable();
             $table->string('allergies')->nullable();
             $table->string('reason')->nullable();
