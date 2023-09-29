@@ -19,5 +19,6 @@ class Attendance extends Model
     protected $fillable = [
         'codeID',
         'studentID',
+        'total_scans'
     ];
 }

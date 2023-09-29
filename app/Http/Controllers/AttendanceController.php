@@ -9,6 +9,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Attendance;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AttendanceController extends APIBaseController
 {
@@ -59,10 +60,12 @@ class AttendanceController extends APIBaseController
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        Attendance::create([
+        Attendance::updateOrCreate([
             'codeID' => $code,
-            'studentID' => $student
+            'studentID' => $student,
         ]);
+
+        // DB::table('attendance')->increment('total_scans');
 
         $payload = [
             'studentID' => Auth::id()
