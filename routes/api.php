@@ -31,9 +31,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     //routes for QR Code
     Route::post('/mark-as-present/{code}/{student}', [AttendanceController::class, 'markAsPresent']);
-    // Route::controller(AttendanceController::class)->group(function () {
-    //     Route::get('/mark-as-present/{code}/{student}', 'markAsPresent');
-    // });
 
     Route::get('/student', function (Request $request) {
         return $request->user();
